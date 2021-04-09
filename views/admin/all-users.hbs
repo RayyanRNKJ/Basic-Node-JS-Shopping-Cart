@@ -1,0 +1,29 @@
+<section>
+    <div class="container mt-5">
+        <div>
+            <a href="/admin/remove-all-users" onclick="return confirm('Are You Sure to Remove All Users ?')" class="btn btn-danger float-end mb-1">Remove All Users</a>
+        </div>
+        <div class="table-responsive-md mt-2">
+            <table class="table responsive">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each users}}
+                    <tr class="align-middle">
+                        <th scope="row">{{incremented @index}}</th>
+                        <td>{{this.Name}}</td>
+                        <td>{{this.Email}}</td>
+                        <td><a href="/admin/remove-user/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are You Sure to Delete {{this.Name}} ?')">Remove</a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

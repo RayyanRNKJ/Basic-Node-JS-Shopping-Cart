@@ -1,0 +1,45 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Admin Panel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                {{#if administator}}
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/admin">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/all-products">All Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/all-users">All Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/all-orders">All Orders</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <form class="d-flex" action="/admin/search" method="POST">
+                            <input class="form-control me-2" name="search" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        </form>
+                    </li>
+                </ul>
+                {{/if}}
+
+                {{#if administator}}
+                <a href="#" class="btn btn-secondary ms-3">{{administator.Name}}</a>
+                <a href="/admin/signout" class="btn btn-outline-secondary ms-3">Sign Out</a>
+                {{else}}
+                <a href="/admin/signup" class="btn btn-secondary ms-3">Sign Up</a>
+                <a href="/admin/signin" class="btn btn-outline-secondary ms-3">Sign In</a>
+                {{/if}}
+            </div>
+        </div>
+    </nav>
+</header>
